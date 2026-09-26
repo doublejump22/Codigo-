@@ -1,0 +1,31 @@
+def simula_fila(chegada, atendimento, atendentes, minutos):
+    fila = 0
+    print("Chegam", chegada, "clientes/min | Atendimento:", atendimento, "por atendente/min | Atendentes:", atendentes)
+ 
+    for minuto in range(1, minutos + 1):
+        capacidade = atendentes * atendimento
+        fila = fila + chegada
+ 
+        if fila > capacidade:
+            atendidos = capacidade
+        else:
+            atendidos = fila
+ 
+        fila = fila - atendidos
+        print("Minuto", minuto, "- fila:", fila)
+ 
+    print("Fila final:", fila)
+    return fila
+ 
+ 
+print("=== Cenario 1 ===")
+simula_fila(2, 1, 1, 10)
+ 
+print()
+print("=== Cenario 2 ===")
+simula_fila(2, 1, 2, 10)
+ 
+print()
+print("=== Cenario 3 ===")
+simula_fila(4, 1, 2, 10)
+ 
